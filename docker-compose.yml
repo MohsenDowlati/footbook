@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5.15.0
+    container_name: footbook_neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/password123
+    volumes:
+      - neo4j_data:/data
+
+  dynamodb:
+    image: amazon/dynamodb-local:latest
+    container_name: footbook_dynamodb
+    ports:
+      - "8000:8000"
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /data"
+    volumes:
+      - dynamodb_data:/data
+
+  redis:
+    image: redis:7.2-alpine
+    container_name: footbook_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  rabbitmq:
+    image: rabbitmq:3.12-management-alpine
+    container_name: footbook_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  neo4j_data:
+  dynamodb_data:
+  redis_data:
+  rabbitmq_data:
