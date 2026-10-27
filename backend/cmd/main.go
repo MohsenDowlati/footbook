@@ -4,7 +4,6 @@ import (
 	"log"
 	"net/http"
 
-
 	"github.com/MohsenDowlati/footbook/graph"
 
 	"github.com/99designs/gqlgen/graphql/handler"
@@ -13,7 +12,7 @@ import (
 )
 
 func main() {
-	env := config.LoadEnv()
+	env := config.LoadServer()
 
 	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
 
