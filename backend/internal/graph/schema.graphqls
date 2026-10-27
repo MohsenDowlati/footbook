@@ -1,0 +1,40 @@
+scalar Time
+
+type User {
+  id: ID!
+  username: String!
+  email: String!
+  createdAt: Time!
+}
+
+type Post {
+  id: ID!
+  userId: String!
+  content: String!
+  mediaUrl: String
+  originalPostId: String
+  likesCount: Int!
+  repostsCount: Int!
+  commentsCount: Int!
+  createdAt: Time!
+}
+
+type Comment {
+  id: ID!
+  postId: ID!
+  userId: ID!
+  content: String!
+  createdAt: Time!
+}
+
+type Query {
+  getFeed(userId: ID!): [Post!]!
+  getPostComments(postId: ID!): [Comment!]!
+}
+
+type Mutation {
+  createPost(userId: ID!, content: String!, mediaUrl: String): Post!
+  likePost(userId: ID!, postId: ID!): Boolean!
+  addComment(userId: ID!, postId: ID!, content: String!): Comment!
+  followUser(followerId: ID!, targetId: ID!): Boolean!
+}
