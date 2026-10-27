@@ -38,3 +38,7 @@ type Mutation {
   addComment(userId: ID!, postId: ID!, content: String!): Comment!
   followUser(followerId: ID!, targetId: ID!): Boolean!
 }
+
+extend type Mutation {
+  unfollowUser(followerId: ID!, targetId: ID!): Boolean!
+}

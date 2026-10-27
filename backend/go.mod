@@ -4,6 +4,7 @@ go 1.27.1
 
 require (
 	github.com/99designs/gqlgen v0.17.98
+	github.com/aws/aws-sdk-go-v2 v1.47.5
 	github.com/aws/aws-sdk-go-v2/config v1.33.12
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.72.2
 	github.com/neo4j/neo4j-go-driver/v5 v5.28.6
@@ -14,7 +15,6 @@ require (
 
 require (
 	github.com/agnivade/levenshtein v1.2.2 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.47.5 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.20.12 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.20.5 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/configsources v1.5.8 // indirect
