@@ -1,5 +1,5 @@
 schema:
-  - graph/*.graphqls
+  - internal/graph/schema.graphqls
 
 exec:
   filename: graph/generated.go
@@ -11,4 +11,4 @@ model:
 
 resolver:
   filename: graph/resolver.go
-  package: graph
+  type: Resolver

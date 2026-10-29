@@ -22,7 +22,7 @@ type Post {
 type Comment {
   id: ID!
   postId: ID!
-  userId: ID!
+  userId: String!
   content: String!
   createdAt: Time!
 }
@@ -37,8 +37,5 @@ type Mutation {
   likePost(userId: ID!, postId: ID!): Boolean!
   addComment(userId: ID!, postId: ID!, content: String!): Comment!
   followUser(followerId: ID!, targetId: ID!): Boolean!
-}
-
-extend type Mutation {
   unfollowUser(followerId: ID!, targetId: ID!): Boolean!
 }

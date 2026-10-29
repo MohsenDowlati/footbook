@@ -2,5 +2,39 @@
 
 package model
 
+import (
+	"time"
+)
+
+type Comment struct {
+	ID        string    `json:"id"`
+	PostID    string    `json:"postId"`
+	UserID    string    `json:"userId"`
+	Content   string    `json:"content"`
+	CreatedAt time.Time `json:"createdAt"`
+}
+
+type Mutation struct {
+}
+
+type Post struct {
+	ID             string    `json:"id"`
+	UserID         string    `json:"userId"`
+	Content        string    `json:"content"`
+	MediaURL       *string   `json:"mediaUrl,omitempty"`
+	OriginalPostID *string   `json:"originalPostId,omitempty"`
+	LikesCount     int       `json:"likesCount"`
+	RepostsCount   int       `json:"repostsCount"`
+	CommentsCount  int       `json:"commentsCount"`
+	CreatedAt      time.Time `json:"createdAt"`
+}
+
 type Query struct {
+}
+
+type User struct {
+	ID        string    `json:"id"`
+	Username  string    `json:"username"`
+	Email     string    `json:"email"`
+	CreatedAt time.Time `json:"createdAt"`
 }

@@ -24,7 +24,7 @@ func main() {
 		log.Fatalf("Database initialization failed: %v", err)
 	}
 	defer clients.Neo4jDriver.Close(ctx)
-	defer clients.RabbitConn.Close()
+	defer clients.RabbitMQ.Close()
 	defer clients.RabbitChan.Close()
 
 	socialSvc := service.NewSocialService(clients.Neo4jDriver)
